@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 45 20% 90%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 45 20% 90%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 45 20% 90%;
+
+    --primary: 43 56% 54%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 45 20% 90%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 43 56% 54%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 43 56% 54%;
+
+    --radius: 0.75rem;
+
+    --gold: 43 56% 54%;
+    --gold-light: 43 70% 65%;
+    --gold-dark: 43 50% 38%;
+    --surface: 0 0% 7%;
+    --surface-hover: 0 0% 10%;
+    --glow-gold: 0 0 40px hsla(43, 56%, 54%, 0.15);
+    --glow-gold-strong: 0 0 80px hsla(43, 56%, 54%, 0.25);
+    --gradient-gold: linear-gradient(135deg, hsl(43, 56%, 54%), hsl(43, 70%, 65%));
+    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 4%), hsl(0, 0%, 8%));
+    --glass-bg: hsla(0, 0%, 100%, 0.04);
+    --glass-border: hsla(0, 0%, 100%, 0.08);
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 45 20% 90%;
+    --sidebar-primary: 43 56% 54%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 45 20% 90%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 43 56% 54%;
+  }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 217 71% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 220 20% 15%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 217 71% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 14% 88%;
+    --input: 220 14% 88%;
+    --ring: 217 71% 45%;
+
+    --gold: 217 71% 45%;
+    --gold-light: 217 71% 55%;
+    --gold-dark: 217 71% 35%;
+    --surface: 0 0% 100%;
+    --surface-hover: 220 14% 96%;
+    --glow-gold: 0 0 40px hsla(217, 71%, 45%, 0.12);
+    --glow-gold-strong: 0 0 80px hsla(217, 71%, 45%, 0.2);
+    --gradient-gold: linear-gradient(135deg, hsl(217, 71%, 45%), hsl(217, 71%, 55%));
+    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 98%), hsl(0, 0%, 94%));
+    --glass-bg: hsla(220, 20%, 15%, 0.03);
+    --glass-border: hsla(220, 20%, 15%, 0.08);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .glass-strong {
+    background: hsla(0, 0%, 100%, 0.06);
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+  }
+  .glow-gold {
+    box-shadow: var(--glow-gold);
+  }
+  .glow-gold-strong {
+    box-shadow: var(--glow-gold-strong);
+  }
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-gold-bg {
+    background: var(--gradient-gold);
+  }
+  .hover-glow {
+    @apply transition-all duration-500;
+  }
+  .hover-glow:hover {
+    box-shadow: var(--glow-gold-strong);
+  }
+}
+
+/* Loading screen */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(0, 0%, 4%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 6%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(43, 56%, 54%);
+  border-radius: 3px;
+}
+.light ::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 94%);
+}
+.light ::-webkit-scrollbar-thumb {
+  background: hsl(217, 71%, 45%);
+}
+
+/* Electric border animation */
+@keyframes electric-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes electric-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
