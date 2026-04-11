@@ -67,7 +67,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/brandcraft/">
         <AppContent />
       </BrowserRouter>
     </TooltipProvider>
